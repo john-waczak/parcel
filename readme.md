@@ -9,7 +9,7 @@ A simple collection of scripts for rapidly computing air parcel backtrajectories
 - [Global Data Assimilation System (NOAA)](https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00379)
 - [Prabuddha's Code for Meteorlogical Data Collection](https://github.com/mi3nts/pmModeling/blob/main/modelTraining/src/meteo_AOD_openAQ_down.py)
 - [Full List of ECMWF ERA5 Variables](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-Parameterlistings)
-- [Conversion of Model Levels to Altitude]()
+- [Conversion of Model Levels to geopotential and geometric height](https://confluence.ecmwf.int/display/CKB/ERA5%3A+compute+pressure+and+geopotential+on+model+levels%2C+geopotential+height+and+geometric+height)
 
 Relevant [variables](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-Parameterlistings) to download:
 
