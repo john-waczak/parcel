@@ -51,8 +51,10 @@ Level Type:
 
 
 # Back-Trajectory Analysis
-The concentration of species $i$ of an air parcel, $c_i$, is described by the [Reaction-Advection-Diffusion Equation](https://en.wikipedia.org/wiki/Convection%E2%80%93diffusion_equation) which fundamentally boils down to conservation of mass: 
+The concentration of species $i$ of an air parcel, $c_i$, is described by the [Reaction-Advection-Diffusion Equation](https://en.wikipedia.org/wiki/Convection%E2%80%93diffusion_equation) which fundamentally boils down to conservation of mass:
+
 $$ \frac{\partial c_i}{\partial t} = \nabla \cdot \left( D \nabla c_i - \mathbf{v}c_i \right) + R $$
+
 where
 
 - $D$ is the diffusivity (concentration moves from high to low according to [Ficks law](https://en.wikipedia.org/wiki/Fick%27s_laws_of_diffusion))
@@ -60,7 +62,10 @@ where
 - $R$ represent fixed sources and sinks (i.e. production/loss by chemical reactions)
 
 There is a tradeoff between the strength of advection and diffusion depending on the relative magnitudes of $\mathbf{v}$ and $D$. For simple back trajectories, ignoring diffusion and assuming all species are in thermochemical equilibrium further simplifies the equations to 
+
 $$  \frac{\partial c_i}{\partial t} + \nabla \cdot (\mathbf{v}c_i) = 0 \\
     \frac{\partial c_i}{\partial t} + \nalbda c_i \cdot \mathbf{v} + (\nabla \cdot v) c_i = 0 $$
+
 treating the fluid as incompressible so that $\nabla \cdot \mathbf{v} = 0$ together with the assumption that the concentrations are steady so that $\partial_t c_i = $ reduces the entire system to
+
 $$ \mathbf{v}\cdot\nabla c_i = 0 $$
