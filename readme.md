@@ -35,7 +35,7 @@ Relevant [variables](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+docum
 | [Geopotential (at level 1)](https://codes.ecmwf.int/grib/param-db/129) | $m^2 \cdot s^{-2}$ | | z | 129 | ml |
 | [Temperature](https://codes.ecmwf.int/grib/param-db/130) | $K$ | | t | 130 | ml |
 | [U component of wind](https://codes.ecmwf.int/grib/param-db/131) | $m \cdot s^{-1}$ | | u | 131 | ml |
-| [V component of wind](https://codes.ecmwf.int/grib/param-db/132) | $m \cdot s^{-1}$ | v | | 132 | ml |
+| [V component of wind](https://codes.ecmwf.int/grib/param-db/132) | $m \cdot s^{-1}$ | | v | 132 | ml |
 | [Specific Humidity](https://codes.ecmwf.int/grib/param-db/133) | $\text{kg}\cdot\text{kg}^{-1}$ | | q | 133 | ml |
 | [Vertical Velocity](https://codes.ecmwf.int/grib/param-db/135) | $\text{Pa}\cdot s^{-1}$ | | w | 135 | ml |
 | [Logarithm of surface pressure](https://codes.ecmwf.int/grib/param-db/152) |  | | lnsp | 152 | ml |
