@@ -11,6 +11,9 @@ A simple collection of scripts for rapidly computing air parcel backtrajectories
 - [Full List of ECMWF ERA5 Variables](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-Parameterlistings)
 - [Conversion of Model Levels to geopotential and geometric height](https://confluence.ecmwf.int/display/CKB/ERA5%3A+compute+pressure+and+geopotential+on+model+levels%2C+geopotential+height+and+geometric+height)
 
+
+# ECMWF Data Information
+
 Relevant [variables](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-Parameterlistings) to download:
 
 | Name | Units | CDS Name | short name | param id | level type |
@@ -48,24 +51,30 @@ Level Type:
  - ml = model level
 
 
+# Meteorological Data Processing
+
+## Conversion to Conformal Map
+Meteorological data are provided on a Lat/Lon grid at many vertical model levels. Velocity data are given in $m/s$ and therefore we must first convert the meteorological data to (conformal) grids measured in units of length. Which projection to use will depend on the starting location.
+- [ ] Stereographic Polar
+- [ ] Conformal Lambert
+- [ ] Mercator
+
+## Conversion to terrain-following coordinate system
+To enable use of a variety of meteorological sources, values at each grid point are linearly interpolated to a terrain-following ($\sigma$)-coordinate system where 
+$$
+    \sigma = \dfrac{Z_{top} - Z_{msl}}{Z_{top} - Z_{gl}}
+$$
+
+# Trajectory Integration
 
 
-# Back-Trajectory Analysis
-The concentration of species $i$ of an air parcel, $c_i$, is described by the [Reaction-Advection-Diffusion Equation](https://en.wikipedia.org/wiki/Convection%E2%80%93diffusion_equation) which fundamentally boils down to conservation of mass:
 
-$$ \frac{\partial c_i}{\partial t} = \nabla \cdot \left( D \nabla c_i - \mathbf{v}c_i \right) + R $$
+# Installation
 
-where
+In order to download meteorlogical data from the ECMWF, first make sure you have a working python environment and install the `cdsapi` tool according the [these instructions](https://cds.climate.copernicus.eu/api-how-to#install-the-cds-api-key)
 
-- $D$ is the diffusivity (concentration moves from high to low according to [Ficks law](https://en.wikipedia.org/wiki/Fick%27s_laws_of_diffusion))
-- $\mathbf{v}$ is the fluid velocity (i.e. $\mathbf{v}c_i$ is flux of species $i$ that is dragged along with the fluid)
-- $R$ represent fixed sources and sinks (i.e. production/loss by chemical reactions)
+Make sure to agree to the [terms of service](https://cds.climate.copernicus.eu/cdsapp/#!/terms/licence-to-use-copernicus-products)
 
-There is a tradeoff between the strength of advection and diffusion depending on the relative magnitudes of $\mathbf{v}$ and $D$. For simple back trajectories, ignoring diffusion and assuming all species are in thermochemical equilibrium further simplifies the equations to 
 
-$$  \frac{\partial c_i}{\partial t} + \nabla \cdot (\mathbf{v}c_i) = 0 \\
-    \frac{\partial c_i}{\partial t} + \nalbda c_i \cdot \mathbf{v} + (\nabla \cdot v) c_i = 0 $$
 
-treating the fluid as incompressible so that $\nabla \cdot \mathbf{v} = 0$ together with the assumption that the concentrations are steady so that $\partial_t c_i = $ reduces the entire system to
-
-$$ \mathbf{v}\cdot\nabla c_i = 0 $$
+NOTES: single day request at hourly resolution for all desired parameters was 16 Gb. 
